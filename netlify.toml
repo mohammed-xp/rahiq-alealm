@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# الصور والفيديو: كاش أسبوع. ملفات html/css/js بتفضل على الإعداد الافتراضي
+# (بيتحقق من التحديث في كل زيارة) عشان أي تعديل يظهر فوراً.
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/assets/video/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مؤسسة رحيق العلم الخاصة – الزومة</title>
+<meta name="description" content="مؤسسة رحيق العلم الخاصة بالزومة – التسجيل مستمر لجميع المراحل الدراسية: الابتدائي، المتوسطة، الثانوي.">
+<link rel="icon" type="image/png" href="logo.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&amp;family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+
+<style>html{scroll-behavior:smooth}body{margin:0;background:#fbf8f0;font-family:'Tajawal',sans-serif;color:#1f2a1f;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}a{color:#2f5d34}a:hover{color:#c8952a}</style>
+</helmet>
+<div dir="rtl" style="font-family:'Tajawal',sans-serif;color:#1f2a1f;background:#fbf8f0;min-height:100vh;padding-bottom:{{ pagePad }}">
+
+<sc-if value="{{ showTopBanner }}" hint-placeholder-val="{{ true }}">
+  <div style="background:#1f3d23;color:#fbf8f0;padding:10px 20px;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;font-size:15px;font-weight:700;text-align:center">
+    <span style="width:8px;height:8px;border-radius:50%;background:#f3d27a;flex-shrink:0"></span>
+    <span>التسجيل مستمر للعام الدراسي الجديد</span>
+    <a href="#contact" style="color:#f3d27a;text-decoration:underline;text-underline-offset:3px">سارع بالتسجيل</a>
+  </div>
+</sc-if>
+
+<header style="position:sticky;top:0;z-index:50;background:rgba(251,248,240,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #e6e0cc">
+  <div style="max-width:1180px;margin:0 auto;padding:10px clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;gap:16px">
+    <a href="#home" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#1f3d23;min-width:0">
+      <img src="logo.png" alt="شعار رحيق العلم" style="height:44px;width:auto;display:block;flex-shrink:0">
+      <div style="display:flex;flex-direction:column;min-width:0">
+        <span style="font-family:'El Messiri',serif;font-weight:700;font-size:18px;line-height:1.2;color:#1f3d23;white-space:nowrap">مؤسسة رحيق العلم الخاصة</span>
+        <span style="font-size:12px;font-weight:500;color:#5a6a5a;white-space:nowrap">بناءٌ للعلم… وثمارٌ للمستقبل</span>
+      </div>
+    </a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ false }}">
+      <nav style="display:flex;align-items:center;gap:22px;font-size:15px;font-weight:700">
+        <a href="#stages" style="color:#1f3d23;text-decoration:none">المراحل</a>
+        <a href="#why" style="color:#1f3d23;text-decoration:none">ليه رحيق العلم</a>
+        <a href="#honor" style="color:#1f3d23;text-decoration:none">المتفوقون</a>
+        <a href="#teachers" style="color:#1f3d23;text-decoration:none">الأساتذة</a>
+        <a href="#fees" style="color:#1f3d23;text-decoration:none">الرسوم</a>
+        <a href="#faq" style="color:#1f3d23;text-decoration:none">الأسئلة</a>
+        <a href="#contact" style="color:#1f3d23;text-decoration:none">العنوان</a>
+      </nav>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+      <a href="https://wa.me/249900241100?text=السلام%20عليكم،%20أرغب%20في%20الاستفسار%20عن%20التسجيل" target="_blank" style="display:flex;align-items:center;gap:8px;background:#2f5d34;color:#fff;text-decoration:none;font-weight:800;font-size:15px;padding:0 16px;height:44px;border-radius:999px" style-hover="background:#1f3d23;color:#fff">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"></path></svg>
+        <span>سجّل الآن</span>
+      </a>
+      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ toggleMenu }}" aria-label="القائمة" style="width:44px;height:44px;border-radius:12px;border:1.5px solid #dfe5d6;background:#fff;color:#1f3d23;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0">
+          <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+          </sc-if>
+          <sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+          </sc-if>
+        </button>
+      </sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ showMenu }}" hint-placeholder-val="{{ false }}">
+    <nav style="border-top:1px solid #e6e0cc;background:#fbf8f0;padding:8px clamp(16px,4vw,40px) 16px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <a href="#stages" onClick="{{ closeMenu }}" style="display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:12px;background:#fff;border:1px solid #e6e0cc;color:#1f3d23;text-decoration:none;font-weight:700;font-size:16px">المراحل الدراسية</a>
+      <a href="#why" onClick="{{ closeMenu }}" style="display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:12px;background:#fff;border:1px solid #e6e0cc;color:#1f3d23;text-decoration:none;font-weight:700;font-size:16px">ليه رحيق العلم</a>
+      <a href="#honor" onClick="{{ closeMenu }}" style="display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:12px;background:#fff;border:1px solid #e6e0cc;color:#1f3d23;text-decoration:none;font-weight:700;font-size:16px">لوحة الشرف</a>
+      <a href="#teachers" onClick="{{ closeMenu }}" style="display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:12px;background:#fff;border:1px solid #e6e0cc;color:#1f3d23;text-decoration:none;font-weight:700;font-size:16px">الأساتذة</a>
+      <a href="#fees" onClick="{{ closeMenu }}" style="display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:12px;background:#fff;border:1px solid #e6e0cc;color:#1f3d23;text-decoration:none;font-weight:700;font-size:16px">الرسوم والخصومات</a>
+      <a href="#gallery" onClick="{{ closeMenu }}" style="display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:12px;background:#fff;border:1px solid #e6e0cc;color:#1f3d23;text-decoration:none;font-weight:700;font-size:16px">معرض الصور</a>
+      <a href="#faq" onClick="{{ closeMenu }}" style="display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:12px;background:#fff;border:1px solid #e6e0cc;color:#1f3d23;text-decoration:none;font-weight:700;font-size:16px">الأسئلة الشائعة</a>
+      <a href="#contact" onClick="{{ closeMenu }}" style="display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:12px;background:#2f5d34;border:1px solid #2f5d34;color:#fff;text-decoration:none;font-weight:700;font-size:16px">العنوان والتواصل</a>
+    </nav>
+  </sc-if>
+</header>
+
+<main>
+
+<sc-if value="{{ heroPhoto }}" hint-placeholder-val="{{ true }}">
+<section id="home" data-screen-label="01 الرئيسية" style="position:relative;overflow:hidden;background:#fbf8f0;scroll-margin-top:80px">
+  <div aria-hidden="true" style="position:absolute;top:-160px;left:-160px;width:420px;height:420px;border-radius:50%;background:#efe6cc"></div>
+  <div style="position:relative;max-width:1180px;margin:0 auto;padding:36px clamp(20px,4vw,40px) 40px;display:flex;flex-wrap:wrap;align-items:center;gap:40px">
+    <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:20px;min-width:0">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:8px;background:#f3d27a;color:#1f3d23;font-weight:800;font-size:15px;padding:8px 16px;border-radius:999px">
+        <span style="width:8px;height:8px;border-radius:50%;background:#2f5d34"></span>
+        استمرار التسجيل للعام الدراسي الجديد
+      </div>
+      <h1 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(42px,10vw,78px);line-height:1.12;color:#1f3d23;text-wrap:balance">علمٌ راسخ <span style="color:#2f5d34;background:linear-gradient(transparent 62%,#f3d27a 62%,#f3d27a 92%,transparent 92%)">وقيمٌ أصيلة</span></h1>
+      <p style="margin:0;font-size:clamp(17px,2.4vw,20px);font-weight:500;line-height:1.7;color:#3a4a3a;text-wrap:pretty;max-width:520px">نستقبل أبناءنا وبناتنا في جميع المراحل الدراسية لبناء مستقبلهم، مع أساتذة أكفاء ومتابعة فردية لكل طالب وطالبة.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="https://wa.me/249900241100?text=السلام%20عليكم،%20أرغب%20في%20الاستفسار%20عن%20التسجيل" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#2f5d34;color:#fff;text-decoration:none;font-weight:800;font-size:17px;padding:0 26px;height:54px;border-radius:999px;flex:1 1 200px;max-width:280px" style-hover="background:#1f3d23;color:#fff">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"></path></svg>
+          سجّل عبر واتساب
+        </a>
+        <a href="tel:0900241100" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;color:#1f3d23;text-decoration:none;font-weight:800;font-size:17px;padding:0 24px;height:54px;border-radius:999px;border:2px solid #2f5d34;flex:1 1 160px;max-width:240px" style-hover="background:#eef1e6;color:#1f3d23">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"></path></svg>
+          اتصل بنا
+        </a>
+      </div>
+    </div>
+    <div style="flex:1 1 320px;position:relative;max-width:520px;margin:0 auto;width:100%">
+      <div style="position:relative;width:100%;aspect-ratio:1/1;border-radius:32px;overflow:hidden;background:#efe6cc;border:6px solid #fff;box-shadow:0 20px 50px -24px rgba(31,61,35,.45)">
+        <sc-if value="{{ hasHeroVideo }}" hint-placeholder-val="{{ false }}">
+          <video src="{{ heroVideo }}" ref="{{ videoRef }}" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
+        </sc-if>
+        <sc-if value="{{ noHeroVideo }}" hint-placeholder-val="{{ true }}">
+        </sc-if>
+      </div>
+      <div style="position:absolute;bottom:-18px;left:-6px;width:124px;height:124px;border-radius:50%;background:#1f3d23;color:#f3d27a;display:flex;align-items:center;justify-content:center;text-align:center;transform:rotate(-10deg);border:4px dashed #f3d27a;outline:6px solid #1f3d23;font-family:'El Messiri',serif;font-weight:700;font-size:19px;line-height:1.25;pointer-events:none">معاً نحو<br>مستقبل<br>مشرق</div>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<sc-if value="{{ heroText }}" hint-placeholder-val="{{ false }}">
+<section id="home" data-screen-label="01 الرئيسية" style="position:relative;overflow:hidden;background:#1f3d23;color:#fff;scroll-margin-top:80px">
+  <div aria-hidden="true" style="position:absolute;left:-60px;top:-80px;font-family:'El Messiri',serif;font-weight:700;font-size:520px;line-height:1;color:#264a2b;transform:rotate(-8deg);pointer-events:none">؟</div>
+  <div style="position:relative;max-width:900px;margin:0 auto;padding:48px clamp(20px,4vw,40px) 56px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
+    <div style="width:120px;height:120px;border-radius:50%;background:#fbf8f0;display:flex;align-items:center;justify-content:center">
+      <img src="logo.png" alt="شعار رحيق العلم" style="width:96px;height:auto;display:block">
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:#f3d27a;color:#1f3d23;font-weight:800;font-size:15px;padding:8px 16px;border-radius:999px">استمرار التسجيل للعام الدراسي الجديد</div>
+    <h1 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(44px,11vw,92px);line-height:1.1;color:#fff;text-wrap:balance">علمٌ راسخ <span style="color:#f3d27a">وقيمٌ أصيلة</span></h1>
+    <p style="margin:0;font-size:clamp(17px,2.4vw,21px);font-weight:500;line-height:1.7;color:#e6ecdf;text-wrap:pretty;max-width:600px">نستقبل أبناءنا وبناتنا في جميع المراحل الدراسية لبناء مستقبلهم، مع أساتذة أكفاء ومتابعة فردية لكل طالب وطالبة.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;width:100%">
+      <a href="https://wa.me/249900241100?text=السلام%20عليكم،%20أرغب%20في%20الاستفسار%20عن%20التسجيل" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#f3d27a;color:#1f3d23;text-decoration:none;font-weight:800;font-size:17px;padding:0 26px;height:54px;border-radius:999px;flex:1 1 200px;max-width:280px" style-hover="background:#fff;color:#1f3d23">سجّل عبر واتساب</a>
+      <a href="tel:0900241100" style="display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:#fff;text-decoration:none;font-weight:800;font-size:17px;padding:0 24px;height:54px;border-radius:999px;border:2px solid #f3d27a;flex:1 1 160px;max-width:240px" style-hover="background:#264a2b;color:#fff">اتصل بنا</a>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<div style="background:#fbf8f0">
+  <div style="max-width:1180px;margin:0 auto;padding:24px clamp(20px,4vw,40px) 40px">
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:#fff;border:1.5px solid #dfe5d6;border-radius:24px;overflow:hidden">
+      <div style="padding:18px 12px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;border-left:1.5px solid #dfe5d6">
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:clamp(28px,6vw,40px);line-height:1.1;color:#2f5d34">٣</div>
+        <div style="font-size:14px;font-weight:700;color:#3a4a3a">مراحل دراسية</div>
+      </div>
+      <div style="padding:18px 12px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;border-left:1.5px solid #dfe5d6">
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:clamp(28px,6vw,40px);line-height:1.1;color:#2f5d34">{{ statAbove }}</div>
+        <div style="font-size:14px;font-weight:700;color:#3a4a3a">متفوقين فوق ٧٥٪</div>
+      </div>
+      <div style="padding:18px 12px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center">
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:clamp(28px,6vw,40px);line-height:1.1;color:#9a6b12">{{ statTop }}</div>
+        <div style="font-size:14px;font-weight:700;color:#3a4a3a">{{ statTopLabel }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="news" data-screen-label="02 الأخبار" style="display:none;background:#efe6cc;scroll-margin-top:80px">
+  <div style="max-width:1180px;margin:0 auto;padding:56px clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="font-size:15px;font-weight:800;color:#9a6b12">إعلانات وأخبار</div>
+      <h2 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.2;color:#1f3d23">آخر أخبار المدرسة</h2>
+    </div>
+    <div style="display:grid;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin-inline:calc(-1 * clamp(20px,4vw,40px));padding-inline:clamp(20px,4vw,40px)">
+      <article style="scroll-snap-align:start;background:#fff;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:10px;border:1.5px solid #e2d8b8">
+        <div style="display:inline-flex;align-self:flex-start;background:#2f5d34;color:#fff;font-weight:800;font-size:13px;padding:4px 12px;border-radius:8px">تسجيل</div>
+        <h3 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:22px;line-height:1.3;color:#1f3d23">استمرار التسجيل للعام الدراسي الجديد</h3>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#3a4a3a;text-wrap:pretty">التسجيل مفتوح لجميع المراحل الدراسية. تواصل معنا لحجز مقعد لابنك أو ابنتك.</p>
+        <a href="#contact" style="margin-top:auto;font-weight:800;font-size:15px;color:#2f5d34">تواصل معنا ←</a>
+      </article>
+      <article style="scroll-snap-align:start;background:#1f3d23;color:#fff;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:inline-flex;align-self:flex-start;background:#f3d27a;color:#1f3d23;font-weight:800;font-size:13px;padding:4px 12px;border-radius:8px">تهنئة</div>
+        <h3 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:22px;line-height:1.3;color:#fff">نهنئ طلابنا المتفوقين</h3>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#e6ecdf;text-wrap:pretty">تتصدّرهم الطالبة ياسمين عوض محمد خير بنسبة ٩١٫٣٪. ألف مبروك لكل المتفوقين.</p>
+        <a href="#honor" style="margin-top:auto;font-weight:800;font-size:15px;color:#f3d27a">لوحة الشرف ←</a>
+      </article>
+      <article style="scroll-snap-align:start;background:#fff;border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:10px;border:1.5px solid #e2d8b8">
+        <div style="display:inline-flex;align-self:flex-start;background:#c8952a;color:#fff;font-weight:800;font-size:13px;padding:4px 12px;border-radius:8px">خصومات</div>
+        <h3 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:22px;line-height:1.3;color:#1f3d23">خصم خاص للأخوة والأيتام</h3>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#3a4a3a;text-wrap:pretty">دعماً للأسر، نقدّم خصومات خاصة عند تسجيل الأخوة، وخصماً للأيتام.</p>
+        <a href="#fees" style="margin-top:auto;font-weight:800;font-size:15px;color:#2f5d34">تفاصيل الرسوم ←</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="stages" data-screen-label="03 المراحل" style="background:#fbf8f0;scroll-margin-top:80px">
+  <div style="max-width:1180px;margin:0 auto;padding:64px clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="font-size:15px;font-weight:800;color:#9a6b12">المراحل الدراسية</div>
+      <h2 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.2;color:#1f3d23">من الأساس… حتى الشهادة</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <article style="background:#2f5d34;color:#fff;border-radius:26px;padding:26px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;min-height:220px">
+        <div aria-hidden="true" style="position:absolute;left:-10px;bottom:-40px;font-family:'El Messiri',serif;font-weight:700;font-size:180px;line-height:1;color:#376a3c">١</div>
+        <div style="position:relative;display:inline-flex;align-self:flex-start;background:#f3d27a;color:#1f3d23;font-weight:800;font-size:14px;padding:5px 14px;border-radius:999px">بنين وبنات</div>
+        <h3 style="position:relative;margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:38px;line-height:1.15">الابتدائي</h3>
+        <p style="position:relative;margin:0;font-size:17px;line-height:1.6;color:#e6ecdf;max-width:240px">بناء الأساس بثقة وتميّز.</p>
+      </article>
+      <article style="background:#f3d27a;color:#1f3d23;border-radius:26px;padding:26px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;min-height:220px">
+        <div aria-hidden="true" style="position:absolute;left:-10px;bottom:-40px;font-family:'El Messiri',serif;font-weight:700;font-size:180px;line-height:1;color:#eac25e">٢</div>
+        <div style="position:relative;display:inline-flex;align-self:flex-start;background:#1f3d23;color:#fff;font-weight:800;font-size:14px;padding:5px 14px;border-radius:999px">بنات</div>
+        <h3 style="position:relative;margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:38px;line-height:1.15">المتوسطة</h3>
+        <p style="position:relative;margin:0;font-size:17px;line-height:1.6;color:#2a3a2a;max-width:240px">تنمية المهارات وتوسيع الآفاق.</p>
+      </article>
+      <article style="background:#1f3d23;color:#fff;border-radius:26px;padding:26px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;min-height:220px">
+        <div aria-hidden="true" style="position:absolute;left:-10px;bottom:-40px;font-family:'El Messiri',serif;font-weight:700;font-size:180px;line-height:1;color:#264a2b">٣</div>
+        <div style="position:relative;display:inline-flex;align-self:flex-start;background:#f3d27a;color:#1f3d23;font-weight:800;font-size:14px;padding:5px 14px;border-radius:999px">بنات</div>
+        <h3 style="position:relative;margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:38px;line-height:1.15">الثانوي</h3>
+        <p style="position:relative;margin:0;font-size:17px;line-height:1.6;color:#e6ecdf;max-width:240px">التميّز والإعداد لمستقبل مشرق.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="why" data-screen-label="04 ليه رحيق العلم" style="background:#1f3d23;color:#fff;position:relative;overflow:hidden;scroll-margin-top:80px">
+  <div aria-hidden="true" style="position:absolute;left:-40px;top:-60px;font-family:'El Messiri',serif;font-weight:700;font-size:420px;line-height:1;color:#264a2b;transform:rotate(-8deg);pointer-events:none">؟</div>
+  <div style="position:relative;max-width:1180px;margin:0 auto;padding:64px clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:32px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="font-size:15px;font-weight:800;color:#f3d27a">٤ أسباب تخلّيك تطمئن</div>
+      <h2 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(36px,8vw,60px);line-height:1.15;color:#fff">ليه <span style="color:#f3d27a">رحيق العلم</span>؟</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 32px">
+      <div style="display:flex;gap:18px;padding:22px 0;border-top:1.5px solid #4a7a4f">
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:40px;line-height:1;color:#f3d27a;flex-shrink:0;width:52px">٠١</div>
+        <div style="display:flex;flex-direction:column;gap:6px"><h3 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:24px">أساتذة أكفاء</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#e6ecdf;text-wrap:pretty">نخبة من المعلمين والمعلمات ذوي الخبرة في جميع المواد.</p></div>
+      </div>
+      <div style="display:flex;gap:18px;padding:22px 0;border-top:1.5px solid #4a7a4f">
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:40px;line-height:1;color:#f3d27a;flex-shrink:0;width:52px">٠٢</div>
+        <div style="display:flex;flex-direction:column;gap:6px"><h3 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:24px">متابعة فردية</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#e6ecdf;text-wrap:pretty">نتابع مستوى كل طالب ونتواصل مع وليّ الأمر باستمرار.</p></div>
+      </div>
+      <div style="display:flex;gap:18px;padding:22px 0;border-top:1.5px solid #4a7a4f">
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:40px;line-height:1;color:#f3d27a;flex-shrink:0;width:52px">٠٣</div>
+        <div style="display:flex;flex-direction:column;gap:6px"><h3 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:24px">مراجعات وامتحانات تجريبية</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#e6ecdf;text-wrap:pretty">تقوية شاملة ومراجعات دورية تجهّز الطالب للامتحانات بثقة.</p></div>
+      </div>
+      <div style="display:flex;gap:18px;padding:22px 0;border-top:1.5px solid #4a7a4f">
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:40px;line-height:1;color:#f3d27a;flex-shrink:0;width:52px">٠٤</div>
+        <div style="display:flex;flex-direction:column;gap:6px"><h3 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:24px">بيئة آمنة ومحفّزة</h3><p style="margin:0;font-size:16px;line-height:1.6;color:#e6ecdf;text-wrap:pretty">فصول هادئة ومنظّمة تساعد على التركيز والتفوّق.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="honor" data-screen-label="05 لوحة الشرف" style="background:#fbf8f0;scroll-margin-top:80px">
+  <div style="max-width:1180px;margin:0 auto;padding:64px clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="font-size:15px;font-weight:800;color:#9a6b12">لوحة الشرف</div>
+      <h2 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.2;color:#1f3d23">نفخر بطلابنا المتفوقين</h2>
+      <div style="font-size:16px;font-weight:700;color:#3a4a3a">{{ honorCaption }}</div>
+    </div>
+    <div role="tablist" style="display:flex;gap:8px;overflow-x:auto;padding-bottom:2px">
+      <sc-for list="{{ honorYears }}" as="y" hint-placeholder-count="1">
+        <button role="tab" onClick="{{ y.pick }}" style="flex-shrink:0;min-height:46px;padding:0 22px;border-radius:999px;border:1.5px solid {{ y.bd }};background:{{ y.bg }};color:{{ y.fg }};font-family:'El Messiri',serif;font-weight:700;font-size:18px;cursor:pointer;transition:background-color .3s ease, color .3s ease">{{ y.label }}</button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+      <div style="background:#1f3d23;color:#fff;border-radius:26px;padding:24px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <div style="width:48px;height:48px;border-radius:50%;background:#f3d27a;color:#1f3d23;display:flex;align-items:center;justify-content:center;font-family:'El Messiri',serif;font-weight:700;font-size:24px">١</div>
+          <div style="font-size:14px;font-weight:800;color:#f3d27a">المركز الأول</div>
+        </div>
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:clamp(48px,10vw,64px);line-height:1;color:#f3d27a">{{ t1.pct }}</div>
+        <div style="font-size:20px;font-weight:800;line-height:1.35">{{ t1.name }}</div>
+      </div>
+      <div style="background:#fff;border:1.5px solid #dfe5d6;border-radius:26px;padding:24px;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <div style="width:48px;height:48px;border-radius:50%;background:#2f5d34;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri',serif;font-weight:700;font-size:24px">٢</div>
+          <div style="font-size:14px;font-weight:800;color:#2f5d34">المركز الثاني</div>
+        </div>
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:clamp(44px,9vw,56px);line-height:1;color:#2f5d34">{{ t2.pct }}</div>
+        <div style="font-size:20px;font-weight:800;line-height:1.35;color:#1f2a1f">{{ t2.name }}</div>
+      </div>
+      <div style="background:#fff;border:1.5px solid #dfe5d6;border-radius:26px;padding:24px;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <div style="width:48px;height:48px;border-radius:50%;background:#c8952a;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'El Messiri',serif;font-weight:700;font-size:24px">٣</div>
+          <div style="font-size:14px;font-weight:800;color:#9a6b12">المركز الثالث</div>
+        </div>
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:clamp(44px,9vw,56px);line-height:1;color:#2f5d34">{{ t3.pct }}</div>
+        <div style="font-size:20px;font-weight:800;line-height:1.35;color:#1f2a1f">{{ t3.name }}</div>
+      </div>
+    </div>
+    <div style="background:#fff;border:1.5px solid #dfe5d6;border-radius:26px;padding:8px 22px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));column-gap:40px">
+        <sc-for list="{{ honorMid }}" as="r" hint-placeholder-count="9">
+          <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid {{ r.bc }}">
+            <div style="width:34px;height:34px;border-radius:50%;background:#eef1e6;color:#2f5d34;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0">{{ r.rank }}</div>
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px"><div style="font-size:17px;font-weight:700">{{ r.name }}</div><div style="height:6px;border-radius:3px;background:#eef1e6;overflow:hidden"><div style="width:{{ r.w }};height:100%;background:#2f5d34;border-radius:3px"></div></div></div>
+            <div style="font-weight:800;font-size:17px;color:#2f5d34;flex-shrink:0">{{ r.pct }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div aria-hidden="{{ honorHidden }}" style="display:grid;grid-template-rows:{{ honorRows }};opacity:{{ honorOpacity }};transition:grid-template-rows .55s cubic-bezier(.2,.8,.2,1), opacity .4s ease">
+      <div style="overflow:hidden;min-height:0">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));column-gap:40px;border-top:1px solid #eef1e6;transform:translateY({{ honorShift }});transition:transform .55s cubic-bezier(.2,.8,.2,1)">
+          <sc-for list="{{ honorRest }}" as="r" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid {{ r.bc }}">
+              <div style="width:34px;height:34px;border-radius:50%;background:#eef1e6;color:#2f5d34;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0">{{ r.rank }}</div>
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px"><div style="font-size:17px;font-weight:700">{{ r.name }}</div><div style="height:6px;border-radius:3px;background:#eef1e6;overflow:hidden"><div style="width:{{ r.w }};height:100%;background:#2f5d34;border-radius:3px"></div></div></div>
+              <div style="font-weight:800;font-size:17px;color:#2f5d34;flex-shrink:0">{{ r.pct }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      </div>
+    </div>
+    <sc-if value="{{ honorHasMore }}" hint-placeholder-val="{{ true }}">
+    <button onClick="{{ toggleHonor }}" style="align-self:center;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;border:2px solid #2f5d34;background:#fff;color:#1f3d23;font-family:'Tajawal',sans-serif;font-weight:800;font-size:17px;cursor:pointer" style-hover="background:#eef1e6">
+      <span>{{ honorLabel }}</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate({{ honorRot }});transition:transform .45s cubic-bezier(.2,.8,.2,1)"><path d="M6 9l6 6 6-6"></path></svg>
+    </button>
+    </sc-if>
+  </div>
+</section>
+
+<section id="teachers" data-screen-label="06 الأساتذة" style="background:#eef1e6;scroll-margin-top:80px">
+  <div style="max-width:1180px;margin:0 auto;padding:64px clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="font-size:15px;font-weight:800;color:#9a6b12">الأساتذة</div>
+      <h2 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.2;color:#1f3d23">أساتذة أكفاء</h2>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#3a4a3a;max-width:560px;text-wrap:pretty">نخبة من المعلمين والمعلمات ذوي الخبرة والكفاءة، يرافقون أبناءكم خطوة بخطوة نحو التميّز.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px">
+      <div style="background:#fff;border-radius:20px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:inline-flex;align-self:flex-start;background:#2f5d34;color:#fff;font-weight:800;font-size:15px;padding:4px 14px;border-radius:9px">التربية الإسلامية</div>
+        <div style="display:flex;flex-direction:column;gap:2px;font-size:18px;font-weight:700;line-height:1.5"><span>أ. عبدالله من الله</span><span>أ. هاجر أحمد</span></div>
+      </div>
+      <div style="background:#fff;border-radius:20px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:inline-flex;align-self:flex-start;background:#2f5d34;color:#fff;font-weight:800;font-size:15px;padding:4px 14px;border-radius:9px">اللغة العربية</div>
+        <div style="display:flex;flex-direction:column;gap:2px;font-size:18px;font-weight:700;line-height:1.5"><span>أ. الجيلي شنان</span><span>أ. عبد الرحمن أبوتو بين</span></div>
+      </div>
+      <div style="background:#fff;border-radius:20px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:inline-flex;align-self:flex-start;background:#c8952a;color:#fff;font-weight:800;font-size:15px;padding:4px 14px;border-radius:9px">الرياضيات</div>
+        <div style="display:flex;flex-direction:column;gap:2px;font-size:18px;font-weight:700;line-height:1.5"><span>أ. محمود يوسف</span><span>أ. جلال</span></div>
+      </div>
+      <div style="background:#fff;border-radius:20px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:inline-flex;align-self:flex-start;background:#c8952a;color:#fff;font-weight:800;font-size:15px;padding:4px 14px;border-radius:9px">اللغة الإنجليزية</div>
+        <div style="display:flex;flex-direction:column;gap:2px;font-size:18px;font-weight:700;line-height:1.5"><span>أ. زين العابدين البشير</span></div>
+      </div>
+      <div style="background:#fff;border-radius:20px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:inline-flex;align-self:flex-start;background:#2f5d34;color:#fff;font-weight:800;font-size:15px;padding:4px 14px;border-radius:9px">الكيمياء</div>
+        <div style="display:flex;flex-direction:column;gap:2px;font-size:18px;font-weight:700;line-height:1.5"><span>أ. تاج السر خلف الله</span><span>أ. فضل المولى شنان</span><span>أ. ناهد حسن</span></div>
+      </div>
+      <div style="background:#fff;border-radius:20px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:inline-flex;align-self:flex-start;background:#2f5d34;color:#fff;font-weight:800;font-size:15px;padding:4px 14px;border-radius:9px">الأحياء</div>
+        <div style="display:flex;flex-direction:column;gap:2px;font-size:18px;font-weight:700;line-height:1.5"><span>أ. محمد فخري</span><span>أ. هند حمد عثمان</span></div>
+      </div>
+      <div style="background:#fff;border-radius:20px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:inline-flex;align-self:flex-start;background:#c8952a;color:#fff;font-weight:800;font-size:15px;padding:4px 14px;border-radius:9px">الفيزياء</div>
+        <div style="display:flex;flex-direction:column;gap:2px;font-size:18px;font-weight:700;line-height:1.5"><span>أ. جلال</span><span>أ. مروة ياسين</span></div>
+      </div>
+      <div style="background:#fff;border-radius:20px;padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:inline-flex;align-self:flex-start;background:#c8952a;color:#fff;font-weight:800;font-size:15px;padding:4px 14px;border-radius:9px">الجغرافيا</div>
+        <div style="display:flex;flex-direction:column;gap:2px;font-size:18px;font-weight:700;line-height:1.5"><span>أ. أنس محمد</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fees" data-screen-label="07 الرسوم" style="background:#fbf8f0;scroll-margin-top:80px">
+  <div style="max-width:1180px;margin:0 auto;padding:64px clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="font-size:15px;font-weight:800;color:#9a6b12">الرسوم والخصومات</div>
+      <h2 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.2;color:#1f3d23">تعليم مميّز برسوم ميسّرة</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px">
+      <div style="background:#fff;border:1.5px solid #dfe5d6;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:44px;line-height:1;color:#c8952a">٠١</div>
+        <h3 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:24px;color:#1f3d23">رسوم ميسّرة</h3>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#3a4a3a;text-wrap:pretty">حرصاً منّا على تعليم الجميع، نوفّر رسوماً مناسبة لكل الأسر.</p>
+      </div>
+      <div style="background:#f3d27a;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:44px;line-height:1;color:#1f3d23">٠٢</div>
+        <h3 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:24px;color:#1f3d23">خصم الأخوة</h3>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#2a3a2a;text-wrap:pretty">خصومات خاصة عند تسجيل أكثر من أخ أو أخت في المدرسة.</p>
+      </div>
+      <div style="background:#2f5d34;color:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'El Messiri',serif;font-weight:700;font-size:44px;line-height:1;color:#f3d27a">٠٣</div>
+        <h3 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:24px">خصم الأيتام</h3>
+        <p style="margin:0;font-size:16px;line-height:1.65;color:#e6ecdf;text-wrap:pretty">تقديراً ودعماً لأبنائنا الأيتام، نقدّم لهم خصماً خاصاً.</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;background:#efe6cc;border-radius:20px;padding:18px 22px">
+      <div style="font-size:17px;font-weight:700;color:#1f3d23">لمعرفة الرسوم بالتفصيل حسب المرحلة، تواصل معنا.</div>
+      <a href="https://wa.me/249900241100?text=السلام%20عليكم،%20أرغب%20في%20معرفة%20الرسوم" target="_blank" style="display:flex;align-items:center;gap:8px;background:#2f5d34;color:#fff;text-decoration:none;font-weight:800;font-size:16px;padding:0 20px;height:48px;border-radius:999px" style-hover="background:#1f3d23;color:#fff">اسأل عن الرسوم</a>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" data-screen-label="08 معرض الصور" style="background:#efe6cc;scroll-margin-top:80px">
+  <div style="max-width:1180px;margin:0 auto;padding:64px clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="font-size:15px;font-weight:800;color:#9a6b12">معرض الصور</div>
+      <h2 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.2;color:#1f3d23">لحظات من يومنا الدراسي</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-auto-rows:150px;grid-auto-flow:dense;gap:10px">
+      <div style="grid-column:span 2;grid-row:span 2;position:relative;border-radius:22px;overflow:hidden;background:#e2d8b8"><img src="gallery-1.webp" alt="الفصول الدراسية" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50.0% 50.0%;display:block"></div>
+      <div style="position:relative;border-radius:22px;overflow:hidden;background:#e2d8b8"><img src="gallery-2.webp" alt="الطابور الصباحي" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58.9% 50.0%;display:block"></div>
+      <div style="position:relative;border-radius:22px;overflow:hidden;background:#e2d8b8"><img src="gallery-3.webp" alt="المعمل" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60.0% 50.0%;display:block"></div>
+      <div style="grid-column:span 2;position:relative;border-radius:22px;overflow:hidden;background:#e2d8b8"><img src="gallery-4.webp" alt="تكريم المتفوقين" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50.0% 71.1%;display:block"></div>
+      <div style="position:relative;border-radius:22px;overflow:hidden;background:#e2d8b8"><img src="gallery-5.webp" alt="الأنشطة" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50.0% 43.3%;display:block"></div>
+      <div style="position:relative;border-radius:22px;overflow:hidden;background:#e2d8b8"><img src="gallery-6.webp" alt="مبنى المدرسة" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50.0% 50.0%;display:block"></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" data-screen-label="09 آراء أولياء الأمور" style="background:#fbf8f0;scroll-margin-top:80px">
+  <div style="max-width:1180px;margin:0 auto;padding:64px clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="font-size:15px;font-weight:800;color:#9a6b12">آراء أولياء الأمور</div>
+      <h2 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.2;color:#1f3d23">ثقتكم… هي نجاحنا</h2>
+    </div>
+    <div style="display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,1fr);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin-inline:calc(-1 * clamp(20px,4vw,40px));padding-inline:clamp(20px,4vw,40px)">
+      <figure style="scroll-snap-align:start;margin:0;background:#fff;border:1.5px solid #dfe5d6;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:14px">
+        <div aria-hidden="true" style="font-family:'El Messiri',serif;font-weight:700;font-size:64px;line-height:.6;height:30px;color:#c8952a">”</div>
+        <blockquote style="margin:0;font-size:17px;font-weight:500;line-height:1.75;color:#1f2a1f;text-wrap:pretty">المتابعة مع الأساتذة ممتازة، وبيتواصلوا معانا أول بأول عن مستوى بنتي. لاحظنا فرق كبير في درجاتها.</blockquote>
+        <figcaption style="margin-top:auto;font-size:15px;font-weight:700;color:#2f5d34">وليّة أمر طالبة — المرحلة المتوسطة</figcaption>
+      </figure>
+      <figure style="scroll-snap-align:start;margin:0;background:#2f5d34;color:#fff;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:14px">
+        <div aria-hidden="true" style="font-family:'El Messiri',serif;font-weight:700;font-size:64px;line-height:.6;height:30px;color:#f3d27a">”</div>
+        <blockquote style="margin:0;font-size:17px;font-weight:500;line-height:1.75;color:#fff;text-wrap:pretty">الامتحانات التجريبية جهّزت بنتي للشهادة وخلتها تدخل الامتحان بثقة. شكراً لكل أساتذة رحيق العلم.</blockquote>
+        <figcaption style="margin-top:auto;font-size:15px;font-weight:700;color:#f3d27a">وليّ أمر طالبة — المرحلة الثانوية</figcaption>
+      </figure>
+      <figure style="scroll-snap-align:start;margin:0;background:#fff;border:1.5px solid #dfe5d6;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:14px">
+        <div aria-hidden="true" style="font-family:'El Messiri',serif;font-weight:700;font-size:64px;line-height:.6;height:30px;color:#c8952a">”</div>
+        <blockquote style="margin:0;font-size:17px;font-weight:500;line-height:1.75;color:#1f2a1f;text-wrap:pretty">سجّلت ولدين في الابتدائي، والرسوم مناسبة مع خصم الأخوة. البيئة هادئة والأطفال مبسوطين.</blockquote>
+        <figcaption style="margin-top:auto;font-size:15px;font-weight:700;color:#2f5d34">وليّة أمر — المرحلة الابتدائية</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="faq" data-screen-label="10 الأسئلة الشائعة" style="background:#eef1e6;scroll-margin-top:80px">
+  <div style="max-width:860px;margin:0 auto;padding:64px clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="font-size:15px;font-weight:800;color:#9a6b12">الأسئلة الشائعة</div>
+      <h2 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.2;color:#1f3d23">عندك سؤال؟</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="background:#fff;border-radius:18px;overflow:hidden">
+        <button onClick="{{ toggle0 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;min-height:60px;background:none;border:0;cursor:pointer;text-align:right;font-family:'Tajawal',sans-serif;font-size:18px;font-weight:800;color:#1f3d23">
+          <span>ما المراحل الدراسية المتاحة؟</span>
+          <span style="width:32px;height:32px;border-radius:50%;background:{{ faqBg0 }};color:{{ faqFg0 }};display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;line-height:1;transform:rotate({{ faqRot0 }});transition:transform .4s cubic-bezier(.2,.8,.2,1), background-color .3s ease, color .3s ease">+</span>
+        </button>
+        <div style="display:grid;grid-template-rows:{{ faqRows0 }};opacity:{{ faqOp0 }};transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1), opacity .35s ease"><div style="overflow:hidden;min-height:0"><p style="margin:0;padding:0 20px 20px;font-size:16px;line-height:1.75;color:#3a4a3a">المرحلة الابتدائية (بنين وبنات)، والمرحلة المتوسطة (بنات)، والمرحلة الثانوية (بنات).</p></div></div>
+      </div>
+      <div style="background:#fff;border-radius:18px;overflow:hidden">
+        <button onClick="{{ toggle1 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;min-height:60px;background:none;border:0;cursor:pointer;text-align:right;font-family:'Tajawal',sans-serif;font-size:18px;font-weight:800;color:#1f3d23">
+          <span>كيف أسجّل ابني أو ابنتي؟</span>
+          <span style="width:32px;height:32px;border-radius:50%;background:{{ faqBg1 }};color:{{ faqFg1 }};display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;line-height:1;transform:rotate({{ faqRot1 }});transition:transform .4s cubic-bezier(.2,.8,.2,1), background-color .3s ease, color .3s ease">+</span>
+        </button>
+        <div style="display:grid;grid-template-rows:{{ faqRows1 }};opacity:{{ faqOp1 }};transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1), opacity .35s ease"><div style="overflow:hidden;min-height:0"><p style="margin:0;padding:0 20px 20px;font-size:16px;line-height:1.75;color:#3a4a3a">تواصل معنا عبر واتساب أو الهاتف على الرقمين 0900241100 أو 0119066699، أو زُرنا مباشرة في مقر المدرسة بحي المدارس – الزومة وسط.</p></div></div>
+      </div>
+      <div style="background:#fff;border-radius:18px;overflow:hidden">
+        <button onClick="{{ toggle2 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;min-height:60px;background:none;border:0;cursor:pointer;text-align:right;font-family:'Tajawal',sans-serif;font-size:18px;font-weight:800;color:#1f3d23">
+          <span>ما المستندات المطلوبة للتسجيل؟</span>
+          <span style="width:32px;height:32px;border-radius:50%;background:{{ faqBg2 }};color:{{ faqFg2 }};display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;line-height:1;transform:rotate({{ faqRot2 }});transition:transform .4s cubic-bezier(.2,.8,.2,1), background-color .3s ease, color .3s ease">+</span>
+        </button>
+        <div style="display:grid;grid-template-rows:{{ faqRows2 }};opacity:{{ faqOp2 }};transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1), opacity .35s ease"><div style="overflow:hidden;min-height:0"><p style="margin:0;padding:0 20px 20px;font-size:16px;line-height:1.75;color:#3a4a3a">الرقم الوطني، وآخر نتيجة دراسية، وصور شخصية حديثة. للتأكد من القائمة الكاملة حسب المرحلة، تواصل معنا.</p></div></div>
+      </div>
+      <div style="background:#fff;border-radius:18px;overflow:hidden">
+        <button onClick="{{ toggle3 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;min-height:60px;background:none;border:0;cursor:pointer;text-align:right;font-family:'Tajawal',sans-serif;font-size:18px;font-weight:800;color:#1f3d23">
+          <span>هل يوجد خصم للأخوة والأيتام؟</span>
+          <span style="width:32px;height:32px;border-radius:50%;background:{{ faqBg3 }};color:{{ faqFg3 }};display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;line-height:1;transform:rotate({{ faqRot3 }});transition:transform .4s cubic-bezier(.2,.8,.2,1), background-color .3s ease, color .3s ease">+</span>
+        </button>
+        <div style="display:grid;grid-template-rows:{{ faqRows3 }};opacity:{{ faqOp3 }};transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1), opacity .35s ease"><div style="overflow:hidden;min-height:0"><p style="margin:0;padding:0 20px 20px;font-size:16px;line-height:1.75;color:#3a4a3a">نعم، نقدّم خصومات خاصة للأخوة المسجّلين معاً، وخصماً خاصاً للأيتام دعماً وتقديراً لهم.</p></div></div>
+      </div>
+      <div style="background:#fff;border-radius:18px;overflow:hidden">
+        <button onClick="{{ toggle4 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;min-height:60px;background:none;border:0;cursor:pointer;text-align:right;font-family:'Tajawal',sans-serif;font-size:18px;font-weight:800;color:#1f3d23">
+          <span>كيف أتابع مستوى ابني أو ابنتي؟</span>
+          <span style="width:32px;height:32px;border-radius:50%;background:{{ faqBg4 }};color:{{ faqFg4 }};display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;line-height:1;transform:rotate({{ faqRot4 }});transition:transform .4s cubic-bezier(.2,.8,.2,1), background-color .3s ease, color .3s ease">+</span>
+        </button>
+        <div style="display:grid;grid-template-rows:{{ faqRows4 }};opacity:{{ faqOp4 }};transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1), opacity .35s ease"><div style="overflow:hidden;min-height:0"><p style="margin:0;padding:0 20px 20px;font-size:16px;line-height:1.75;color:#3a4a3a">نتابع كل طالب بشكل فردي ونتواصل مع وليّ الأمر باستمرار لإطلاعه على المستوى والملاحظات.</p></div></div>
+      </div>
+      <div style="background:#fff;border-radius:18px;overflow:hidden">
+        <button onClick="{{ toggle5 }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;min-height:60px;background:none;border:0;cursor:pointer;text-align:right;font-family:'Tajawal',sans-serif;font-size:18px;font-weight:800;color:#1f3d23">
+          <span>هل توجد امتحانات تجريبية؟</span>
+          <span style="width:32px;height:32px;border-radius:50%;background:{{ faqBg5 }};color:{{ faqFg5 }};display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;line-height:1;transform:rotate({{ faqRot5 }});transition:transform .4s cubic-bezier(.2,.8,.2,1), background-color .3s ease, color .3s ease">+</span>
+        </button>
+        <div style="display:grid;grid-template-rows:{{ faqRows5 }};opacity:{{ faqOp5 }};transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1), opacity .35s ease"><div style="overflow:hidden;min-height:0"><p style="margin:0;padding:0 20px 20px;font-size:16px;line-height:1.75;color:#3a4a3a">نعم، نقيم مراجعات دورية وامتحانات تجريبية تجهّز الطلاب للامتحانات بثقة واطمئنان.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="11 العنوان" style="background:#fbf8f0;scroll-margin-top:80px">
+  <div style="max-width:1180px;margin:0 auto;padding:64px clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="font-size:15px;font-weight:800;color:#9a6b12">العنوان والتواصل</div>
+      <h2 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.2;color:#1f3d23">زُورونا أو كلّمونا</h2>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:stretch">
+      <div style="flex:1 1 300px;background:#fff;border:1.5px solid #dfe5d6;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <div style="width:48px;height:48px;border-radius:14px;background:#eef1e6;color:#2f5d34;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:14px;font-weight:700;color:#5a6a5a">العنوان</div>
+            <div style="font-family:'El Messiri',serif;font-weight:700;font-size:22px;line-height:1.35;color:#1f3d23">الزومة – الزومة وسط<br>حي المدارس</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:14px;font-weight:700;color:#5a6a5a">للاستفسار</div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <div dir="ltr" style="font-weight:800;font-size:22px;letter-spacing:.5px;color:#1f2a1f;flex:1 1 auto;text-align:right">0900241100</div>
+            <div style="display:flex;gap:8px">
+              <a href="tel:0900241100" aria-label="اتصال" style="width:46px;height:46px;border-radius:50%;border:2px solid #2f5d34;color:#2f5d34;display:flex;align-items:center;justify-content:center" style-hover="background:#eef1e6"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"></path></svg></a>
+              <a href="https://wa.me/249900241100" target="_blank" aria-label="واتساب" style="width:46px;height:46px;border-radius:50%;background:#2f5d34;color:#fff;display:flex;align-items:center;justify-content:center" style-hover="background:#1f3d23;color:#fff"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"></path></svg></a>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:10px;border-top:1px solid #eef1e6">
+            <div dir="ltr" style="font-weight:800;font-size:22px;letter-spacing:.5px;color:#1f2a1f;flex:1 1 auto;text-align:right">0119066699</div>
+            <div style="display:flex;gap:8px">
+              <a href="tel:0119066699" aria-label="اتصال" style="width:46px;height:46px;border-radius:50%;border:2px solid #2f5d34;color:#2f5d34;display:flex;align-items:center;justify-content:center" style-hover="background:#eef1e6"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"></path></svg></a>
+              <a href="https://wa.me/249119066699" target="_blank" aria-label="واتساب" style="width:46px;height:46px;border-radius:50%;background:#2f5d34;color:#fff;display:flex;align-items:center;justify-content:center" style-hover="background:#1f3d23;color:#fff"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"></path></svg></a>
+            </div>
+          </div>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=18.364411,31.741655" target="_blank" style="margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;height:50px;border-radius:999px;background:#efe6cc;color:#1f3d23;text-decoration:none;font-weight:800;font-size:16px" style-hover="background:#e2d8b8;color:#1f3d23">افتح الموقع في الخرائط</a>
+      </div>
+      <div style="flex:1.4 1 340px;min-height:320px;border-radius:24px;overflow:hidden;background:#eef1e6;border:1.5px solid #dfe5d6;position:relative">
+        <iframe title="خريطة موقع المدرسة" src="https://maps.google.com/maps?q=18.364411,31.741655&amp;z=17&amp;output=embed" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="12 سارع بالتسجيل" style="background:#2f5d34;color:#fff;position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;top:-180px;right:-180px;width:460px;height:460px;border-radius:50%;background:#376a3c"></div>
+  <div style="position:relative;max-width:1180px;margin:0 auto;padding:56px clamp(20px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:8px;flex:1 1 320px">
+      <h2 style="margin:0;font-family:'El Messiri',serif;font-weight:700;font-size:clamp(32px,7vw,52px);line-height:1.15;color:#f3d27a">سارع بالتسجيل واغتنم الفرصة</h2>
+      <p style="margin:0;font-size:18px;font-weight:500;line-height:1.6;color:#e6ecdf">ابدأ معنا… مستقبل أبنائك يبدأ من هنا.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;flex:1 1 280px;max-width:460px">
+      <a href="https://wa.me/249900241100?text=السلام%20عليكم،%20أرغب%20في%20الاستفسار%20عن%20التسجيل" target="_blank" style="flex:1 1 180px;display:flex;align-items:center;justify-content:center;height:54px;border-radius:999px;background:#f3d27a;color:#1f3d23;text-decoration:none;font-weight:800;font-size:17px" style-hover="background:#fff;color:#1f3d23">سجّل عبر واتساب</a>
+      <a href="tel:0900241100" style="flex:1 1 140px;display:flex;align-items:center;justify-content:center;height:54px;border-radius:999px;border:2px solid #f3d27a;color:#fff;text-decoration:none;font-weight:800;font-size:17px" style-hover="background:#376a3c;color:#fff">اتصل بنا</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer style="background:#1f3d23;color:#e6ecdf">
+  <div style="max-width:1180px;margin:0 auto;padding:44px clamp(20px,4vw,40px) 28px;display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <div style="width:72px;height:72px;border-radius:50%;background:#fbf8f0;display:flex;align-items:center;justify-content:center;flex-shrink:0"><img src="logo.png" alt="شعار رحيق العلم" style="width:58px;height:auto;display:block"></div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <div style="font-family:'El Messiri',serif;font-weight:700;font-size:22px;color:#f3d27a">مؤسسة رحيق العلم الخاصة</div>
+          <div style="font-size:15px">بناءٌ للعلم… وثمارٌ للمستقبل</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px;font-size:15px">
+        <div style="font-weight:800;color:#fff">العنوان</div>
+        <div>الزومة – الزومة وسط، حي المدارس</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px;font-size:15px">
+        <div style="font-weight:800;color:#fff">للاستفسار</div>
+        <a href="tel:0900241100" dir="ltr" style="color:#f3d27a;text-decoration:none;font-weight:800;font-size:18px;text-align:right">0900241100</a>
+        <a href="tel:0119066699" dir="ltr" style="color:#f3d27a;text-decoration:none;font-weight:800;font-size:18px;text-align:right">0119066699</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid #4a7a4f;padding-top:18px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:14px;color:#c9d4c3">
+      <span>مع رحيق العلم… نكتب مستقبلاً مشرقاً لأبنائنا</span>
+      <span>© ٢٠٢٦ مؤسسة رحيق العلم الخاصة</span>
+    </div>
+  </div>
+</footer>
+
+<sc-if value="{{ showBar }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;bottom:0;left:0;right:0;z-index:60;background:rgba(251,248,240,.97);border-top:1px solid #e6e0cc;padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;gap:10px;box-shadow:0 -8px 24px -12px rgba(31,61,35,.25)">
+    <a href="tel:0900241100" style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;height:50px;border-radius:999px;border:2px solid #2f5d34;color:#1f3d23;text-decoration:none;font-weight:800;font-size:16px;background:#fff">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"></path></svg>
+      اتصل
+    </a>
+    <a href="https://wa.me/249900241100?text=السلام%20عليكم،%20أرغب%20في%20الاستفسار%20عن%20التسجيل" target="_blank" style="flex:1.4;display:flex;align-items:center;justify-content:center;gap:8px;height:50px;border-radius:999px;background:#2f5d34;color:#fff;text-decoration:none;font-weight:800;font-size:16px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"></path></svg>
+      سجّل عبر واتساب
+    </a>
+  </div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;photo&quot;,&quot;text&quot;],&quot;default&quot;:&quot;photo&quot;,&quot;tsType&quot;:&quot;'photo' | 'text'&quot;,&quot;section&quot;:&quot;الواجهة&quot;},&quot;heroVideo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;hero.mp4&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;الواجهة&quot;},&quot;showTopBanner&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;الواجهة&quot;},&quot;showMobileBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;الموبايل&quot;}}">
+class Component extends DCLogic {
+  state = { wide: false, menuOpen: false, faq: 0 };
+  componentDidMount() {
+    this.onResize = () => this.setState({ wide: window.innerWidth >= 960 });
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  // لإضافة سنة جديدة: أضف كائناً جديداً في أول المصفوفة بنفس الشكل
+  HONOR = [
+    { year: 2026, cert: 'الشهادة السودانية', list: [
+      ['ياسمين عوض محمد خير',91.3],['ريلان احمد',89.9],['غاليه ياسر',86.3],['عفاف عوض جعفر',86],['غفار السر',82],['شهد معتصم',81.7],['نادرين عبد المنعم',80.3],['إمتنان عثمان',79.9],['لينا احمد علي',79],['رزان معتصم الدويحي',76.7],['فاطمه السر عبد الله',76],['هانم كمال',75.6],['إثار ياسر',75.3],['فاطمة حامد',73],['أمنية فوزي',71.3],['رونق أبوبكر',71],['ضحى احمد',70.4],['مأب عادل هارون',70.1],['هبة محجوب',69.7],['رقية عوض',69.7],['تهاني حمزه',68.4],['تقى اسامة حسن',67.7],['سمر احمد طه',66.9],['وداد احمد حسن',66.7],['منة الله نادر',66.1],['رهف هاشم',63.4],['نسمة عماد',67.1],['اسيل عبدالله',64.7],['شيماء طارق',61.4],['شهد ابوبكر',60.6],['تماضر عوض',60.4],['سجى إسماعيل',60.1]
+    ] },
+  ];
+  honorVals() {
+    const ar = s => String(s).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]).replace('.', '٫');
+    const years = [...this.HONOR].sort((a, b) => b.year - a.year);
+    const sel = years.find(y => y.year === this.state.honorYear) || years[0];
+    const rows = sel.list.map(([name, p], i) => ({ rank: ar(i + 1), name, pct: ar(p) + '٪', w: p + '%', bc: '#eef1e6' }));
+    const mid = rows.slice(3, 12), rest = rows.slice(12);
+    if (mid.length) mid[mid.length - 1].bc = 'transparent';
+    if (rest.length) rest[rest.length - 1].bc = 'transparent';
+    const blank = { name: '', pct: '' };
+    const latest = years[0];
+    return {
+      honorYears: years.map(y => {
+        const on = y.year === sel.year;
+        return { label: 'دفعة ' + ar(y.year), bg: on ? '#1f3d23' : '#fff', fg: on ? '#f3d27a' : '#1f3d23', bd: on ? '#1f3d23' : '#dfe5d6',
+          pick: () => this.setState({ honorYear: y.year, honorOpen: false }) };
+      }),
+      honorCaption: 'نتائج امتحانات ' + sel.cert + ' ' + ar(sel.year),
+      t1: rows[0] || blank, t2: rows[1] || blank, t3: rows[2] || blank,
+      honorMid: mid, honorRest: rest, honorHasMore: rest.length > 0,
+      honorLabel: this.state.honorOpen ? 'إخفاء القائمة' : 'عرض كل المتفوقين (' + ar(rows.length) + ')',
+      statTop: ar(latest.list[0][1]) + '٪',
+      statAbove: ar(latest.list.filter(r => r[1] > 75).length),
+      statTopLabel: 'أعلى نسبة في ' + latest.cert + ' ' + ar(latest.year),
+    };
+  }
+  renderVals() {
+    const { wide, menuOpen, faq } = this.state;
+    const heroStyle = this.props.heroStyle ?? 'photo';
+    const showBar = (this.props.showMobileBar ?? true) && !wide;
+    const v = {
+      wide, narrow: !wide, menuOpen, menuClosed: !menuOpen,
+      showMenu: menuOpen && !wide,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      heroPhoto: heroStyle === 'photo', heroText: heroStyle === 'text',
+      showTopBanner: this.props.showTopBanner ?? true,
+      showBar, pagePad: showBar ? '76px' : '0px',
+      heroVideo: encodeURI((this.props.heroVideo ?? 'hero.mp4').trim()),
+      hasHeroVideo: !!(this.props.heroVideo ?? 'hero.mp4').trim(),
+      noHeroVideo: !(this.props.heroVideo ?? 'hero.mp4').trim(),
+      honorOpen: !!this.state.honorOpen,
+      honorRows: this.state.honorOpen ? '1fr' : '0fr',
+      honorOpacity: this.state.honorOpen ? 1 : 0,
+      honorShift: this.state.honorOpen ? '0px' : '-16px',
+      honorRot: this.state.honorOpen ? '180deg' : '0deg',
+      honorHidden: this.state.honorOpen ? 'false' : 'true',
+      toggleHonor: () => {
+        const closing = this.state.honorOpen;
+        this.setState({ honorOpen: !closing });
+        if (closing) {
+          const sec = document.getElementById('honor');
+          if (sec && sec.getBoundingClientRect().top < 0) window.scrollTo({ top: sec.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+        }
+      },
+      ...this.honorVals(),
+      videoRef: el => { if (el) { el.muted = true; const p = el.play(); if (p) p.catch(() => {}); } },
+    };
+    for (let i = 0; i < 6; i++) {
+      const open = faq === i;
+      v['faq' + i] = open;
+      v['faqIcon' + i] = '+';
+      v['faqRows' + i] = open ? '1fr' : '0fr';
+      v['faqOp' + i] = open ? 1 : 0;
+      v['faqRot' + i] = open ? '45deg' : '0deg';
+      v['faqBg' + i] = open ? '#2f5d34' : '#eef1e6';
+      v['faqFg' + i] = open ? '#fff' : '#2f5d34';
+      v['toggle' + i] = () => this.setState(s => ({ faq: s.faq === i ? -1 : i }));
+    }
+    return v;
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<!-- الملف ده بيتعمل تلقائياً من content.json — ماتعدّلوش هنا، عدّل content.json وشغّل npm run build -->
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مؤسسة رحيق العلم الخاصة – الزومة</title>
+<meta name="description" content="مؤسسة رحيق العلم الخاصة بالزومة – التسجيل مستمر لجميع المراحل الدراسية: الابتدائي، المتوسطة، الثانوي.">
+<meta name="theme-color" content="#1f3d23">
+<link rel="icon" type="image/png" href="assets/img/logo.png">
+<link rel="apple-touch-icon" href="assets/img/logo.png">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:site_name" content="مؤسسة رحيق العلم الخاصة">
+<meta property="og:title" content="مؤسسة رحيق العلم الخاصة – الزومة">
+<meta property="og:description" content="مؤسسة رحيق العلم الخاصة بالزومة – التسجيل مستمر لجميع المراحل الدراسية: الابتدائي، المتوسطة، الثانوي.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&amp;family=Tajawal:wght@400;500;700;800&amp;display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></g></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></symbol>
+</svg>
+
+<div class="top-banner">
+  <span class="dot dot--gold" aria-hidden="true"></span>
+  <span>التسجيل مستمر للعام الدراسي الجديد</span>
+  <a href="#contact">سارع بالتسجيل</a>
+</div>
+
+<header class="site-header">
+  <div class="header-bar">
+    <a href="#home" class="brand">
+      <img src="assets/img/logo.png" alt="شعار مؤسسة رحيق العلم الخاصة" width="60" height="44" class="brand-logo">
+      <span class="brand-text">
+        <span class="brand-name">مؤسسة رحيق العلم الخاصة</span>
+        <span class="brand-tag">بناءٌ للعلم… وثمارٌ للمستقبل</span>
+      </span>
+    </a>
+    <nav class="nav-desktop" aria-label="القائمة الرئيسية">
+      <a href="#stages">المراحل</a>
+      <a href="#why">ليه رحيق العلم</a>
+      <a href="#honor">المتفوقون</a>
+      <a href="#teachers">الأساتذة</a>
+      <a href="#fees">الرسوم</a>
+      <a href="#faq">الأسئلة</a>
+      <a href="#contact">العنوان</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn--primary btn--sm" href="https://wa.me/249900241100?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84" target="_blank" rel="noopener" aria-label="سجّل الآن عبر واتساب">
+        <svg width="18" height="18" aria-hidden="true"><use href="#i-chat"/></svg>
+        <span class="btn-label">سجّل الآن</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="القائمة" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="icon-open" width="20" height="20" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon-close" width="20" height="20" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-menu" class="nav-mobile" aria-label="القائمة" hidden>
+    <a href="#stages">المراحل الدراسية</a>
+    <a href="#why">ليه رحيق العلم</a>
+    <a href="#honor">لوحة الشرف</a>
+    <a href="#teachers">الأساتذة</a>
+    <a href="#fees">الرسوم والخصومات</a>
+    <a href="#gallery">معرض الصور</a>
+    <a href="#faq">الأسئلة الشائعة</a>
+    <a href="#contact" class="is-accent">العنوان والتواصل</a>
+  </nav>
+</header>
+
+<main>
+
+<section id="home" class="hero">
+  <div class="hero-blob" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="badge-gold">
+        <span class="dot dot--green" aria-hidden="true"></span>
+        استمرار التسجيل للعام الدراسي الجديد
+      </div>
+      <h1 class="hero-title">علمٌ راسخ <span class="hl">وقيمٌ أصيلة</span></h1>
+      <p class="hero-lead">نستقبل أبناءنا وبناتنا في جميع المراحل الدراسية لبناء مستقبلهم، مع أساتذة أكفاء ومتابعة فردية لكل طالب وطالبة.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--primary" href="https://wa.me/249900241100?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84" target="_blank" rel="noopener">
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-chat"/></svg>
+          سجّل عبر واتساب
+        </a>
+        <a class="btn btn--outline" href="tel:0900241100">
+          <svg width="19" height="19" aria-hidden="true"><use href="#i-phone"/></svg>
+          اتصل بنا
+        </a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="hero-frame">
+        <video class="hero-video" src="assets/video/hero.mp4" poster="assets/img/hero-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="كلمة شكر لأساتذة رحيق العلم"></video>
+      </div>
+      <div class="hero-seal" aria-hidden="true">معاً نحو<br>مستقبل<br>مشرق</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-wrap">
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">٣</div>
+      <div class="stat-label">مراحل دراسية</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">١٣</div>
+      <div class="stat-label">متفوقين فوق ٧٥٪</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num stat-num--amber">٩١٫٣٪</div>
+      <div class="stat-label">أعلى نسبة في الشهادة السودانية ٢٠٢٦</div>
+    </div>
+  </div>
+</div>
+
+
+<section id="stages" class="section section--cream">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">المراحل الدراسية</div>
+      <h2 class="section-title">من الأساس… حتى الشهادة</h2>
+    </div>
+    <div class="stages">
+      <article class="stage-card stage-card--green">
+        <div class="stage-num" aria-hidden="true">١</div>
+        <div class="chip">بنين وبنات</div>
+        <h3>الابتدائي</h3>
+        <p>بناء الأساس بثقة وتميّز.</p>
+      </article>
+      <article class="stage-card stage-card--gold">
+        <div class="stage-num" aria-hidden="true">٢</div>
+        <div class="chip">بنات</div>
+        <h3>المتوسطة</h3>
+        <p>تنمية المهارات وتوسيع الآفاق.</p>
+      </article>
+      <article class="stage-card stage-card--dark">
+        <div class="stage-num" aria-hidden="true">٣</div>
+        <div class="chip">بنات</div>
+        <h3>الثانوي</h3>
+        <p>التميّز والإعداد لمستقبل مشرق.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="section section--dark why">
+  <div class="why-mark" aria-hidden="true">؟</div>
+  <div class="container container--why">
+    <div class="section-head">
+      <div class="eyebrow eyebrow--gold">٤ أسباب تخلّيك تطمئن</div>
+      <h2 class="why-title">ليه <span>رحيق العلم</span>؟</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">٠١</div>
+        <div class="why-body"><h3>أساتذة أكفاء</h3><p>نخبة من المعلمين والمعلمات ذوي الخبرة في جميع المواد.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">٠٢</div>
+        <div class="why-body"><h3>متابعة فردية</h3><p>نتابع مستوى كل طالب ونتواصل مع وليّ الأمر باستمرار.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">٠٣</div>
+        <div class="why-body"><h3>مراجعات وامتحانات تجريبية</h3><p>تقوية شاملة ومراجعات دورية تجهّز الطالب للامتحانات بثقة.</p></div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">٠٤</div>
+        <div class="why-body"><h3>بيئة آمنة ومحفّزة</h3><p>فصول هادئة ومنظّمة تساعد على التركيز والتفوّق.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="honor" class="section section--cream">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">لوحة الشرف</div>
+      <h2 class="section-title">نفخر بطلابنا المتفوقين</h2>
+      <div class="honor-caption" id="honor-caption">نتائج امتحانات الشهادة السودانية ٢٠٢٦</div>
+    </div>
+    <div class="honor-tabs" id="honor-tabs" role="tablist" aria-label="الدفعات"></div>
+    <div class="podium">
+      <div class="podium-card podium-card--1">
+        <div class="podium-top"><div class="medal">١</div><div class="podium-place">المركز الأول</div></div>
+        <div class="podium-pct">٩١٫٣٪</div>
+        <div class="podium-name">ياسمين عوض محمد خير</div>
+      </div>
+      <div class="podium-card podium-card--2">
+        <div class="podium-top"><div class="medal">٢</div><div class="podium-place">المركز الثاني</div></div>
+        <div class="podium-pct">٨٩٫٩٪</div>
+        <div class="podium-name">ريلان احمد</div>
+      </div>
+      <div class="podium-card podium-card--3">
+        <div class="podium-top"><div class="medal">٣</div><div class="podium-place">المركز الثالث</div></div>
+        <div class="podium-pct">٨٦٫٣٪</div>
+        <div class="podium-name">غاليه ياسر</div>
+      </div>
+    </div>
+    <div class="honor-list" id="honor-list">
+      <div class="honor-grid" id="honor-mid"></div>
+      <div class="honor-collapse" id="honor-rest-wrap" aria-hidden="true">
+        <div class="honor-collapse-inner">
+          <div class="honor-grid honor-grid--rest" id="honor-rest"></div>
+        </div>
+      </div>
+    </div>
+    <button class="honor-toggle" id="honor-toggle" type="button" aria-expanded="false" aria-controls="honor-rest-wrap" hidden>
+      <span>عرض كل المتفوقين</span>
+      <svg width="18" height="18" aria-hidden="true"><use href="#i-chevron"/></svg>
+    </button>
+    <script type="application/json" id="honor-data">[{"year":2026,"cert":"الشهادة السودانية","list":[["ياسمين عوض محمد خير",91.3],["ريلان احمد",89.9],["غاليه ياسر",86.3],["عفاف عوض جعفر",86],["غفار السر",82],["شهد معتصم",81.7],["نادرين عبد المنعم",80.3],["إمتنان عثمان",79.9],["لينا احمد علي",79],["رزان معتصم الدويحي",76.7],["فاطمه السر عبد الله",76],["هانم كمال",75.6],["إثار ياسر",75.3],["فاطمة حامد",73],["أمنية فوزي",71.3],["رونق أبوبكر",71],["ضحى احمد",70.4],["مأب عادل هارون",70.1],["هبة محجوب",69.7],["رقية عوض",69.7],["تهاني حمزه",68.4],["تقى اسامة حسن",67.7],["سمر احمد طه",66.9],["وداد احمد حسن",66.7],["منة الله نادر",66.1],["رهف هاشم",63.4],["نسمة عماد",67.1],["اسيل عبدالله",64.7],["شيماء طارق",61.4],["شهد ابوبكر",60.6],["تماضر عوض",60.4],["سجى إسماعيل",60.1]]}]</script>
+  </div>
+</section>
+
+<section id="teachers" class="section section--sage">
+  <div class="container">
+    <div class="section-head section-head--loose">
+      <div class="eyebrow">الأساتذة</div>
+      <h2 class="section-title">أساتذة أكفاء</h2>
+      <p class="section-lead">نخبة من المعلمين والمعلمات ذوي الخبرة والكفاءة، يرافقون أبناءكم خطوة بخطوة نحو التميّز.</p>
+    </div>
+    <div class="teachers">
+      <div class="teacher-card">
+        <div class="subject">التربية الإسلامية</div>
+        <div class="teacher-names"><span>أ. عبدالله من الله</span><span>أ. هاجر أحمد</span></div>
+      </div>
+      <div class="teacher-card">
+        <div class="subject">اللغة العربية</div>
+        <div class="teacher-names"><span>أ. الجيلي شنان</span><span>أ. عبد الرحمن أبوتو بين</span></div>
+      </div>
+      <div class="teacher-card">
+        <div class="subject subject--amber">الرياضيات</div>
+        <div class="teacher-names"><span>أ. محمود يوسف</span><span>أ. جلال</span></div>
+      </div>
+      <div class="teacher-card">
+        <div class="subject subject--amber">اللغة الإنجليزية</div>
+        <div class="teacher-names"><span>أ. زين العابدين البشير</span></div>
+      </div>
+      <div class="teacher-card">
+        <div class="subject">الكيمياء</div>
+        <div class="teacher-names"><span>أ. تاج السر خلف الله</span><span>أ. فضل المولى شنان</span><span>أ. ناهد حسن</span></div>
+      </div>
+      <div class="teacher-card">
+        <div class="subject">الأحياء</div>
+        <div class="teacher-names"><span>أ. محمد فخري</span><span>أ. هند حمد عثمان</span></div>
+      </div>
+      <div class="teacher-card">
+        <div class="subject subject--amber">الفيزياء</div>
+        <div class="teacher-names"><span>أ. جلال</span><span>أ. مروة ياسين</span></div>
+      </div>
+      <div class="teacher-card">
+        <div class="subject subject--amber">الجغرافيا</div>
+        <div class="teacher-names"><span>أ. أنس محمد</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fees" class="section section--cream">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">الرسوم والخصومات</div>
+      <h2 class="section-title">تعليم مميّز برسوم ميسّرة</h2>
+    </div>
+    <div class="fees">
+      <div class="fee-card">
+        <div class="fee-num">٠١</div>
+        <h3>رسوم ميسّرة</h3>
+        <p>حرصاً منّا على تعليم الجميع، نوفّر رسوماً مناسبة لكل الأسر.</p>
+      </div>
+      <div class="fee-card fee-card--gold">
+        <div class="fee-num">٠٢</div>
+        <h3>خصم الأخوة</h3>
+        <p>خصومات خاصة عند تسجيل أكثر من أخ أو أخت في المدرسة.</p>
+      </div>
+      <div class="fee-card fee-card--green">
+        <div class="fee-num">٠٣</div>
+        <h3>خصم الأيتام</h3>
+        <p>تقديراً ودعماً لأبنائنا الأيتام، نقدّم لهم خصماً خاصاً.</p>
+      </div>
+    </div>
+    <div class="fees-note">
+      <div class="fees-note-text">لمعرفة الرسوم بالتفصيل حسب المرحلة، تواصل معنا.</div>
+      <a class="btn btn--primary btn--md" href="https://wa.me/249900241100?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D8%B1%D8%B3%D9%88%D9%85" target="_blank" rel="noopener">اسأل عن الرسوم</a>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="section section--sand">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">معرض الصور</div>
+      <h2 class="section-title">لحظات من يومنا الدراسي</h2>
+    </div>
+    <div class="gallery">
+      <div class="g-item g-item--big"><img src="assets/img/gallery-1.webp" alt="الفصول الدراسية" loading="lazy" decoding="async"></div>
+      <div class="g-item"><img src="assets/img/gallery-2.webp" alt="الطابور الصباحي" loading="lazy" decoding="async" style="object-position:58.9% 50%"></div>
+      <div class="g-item"><img src="assets/img/gallery-3.webp" alt="المعمل" loading="lazy" decoding="async" style="object-position:60% 50%"></div>
+      <div class="g-item g-item--wide"><img src="assets/img/gallery-4.webp" alt="تكريم المتفوقين" loading="lazy" decoding="async" style="object-position:50% 71.1%"></div>
+      <div class="g-item"><img src="assets/img/gallery-5.webp" alt="الأنشطة" loading="lazy" decoding="async" style="object-position:50% 43.3%"></div>
+      <div class="g-item"><img src="assets/img/gallery-6.webp" alt="مبنى المدرسة" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="section section--cream">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">آراء أولياء الأمور</div>
+      <h2 class="section-title">ثقتكم… هي نجاحنا</h2>
+    </div>
+    <div class="h-scroll h-scroll--reviews">
+      <figure class="review">
+        <div class="review-mark" aria-hidden="true">”</div>
+        <blockquote>المتابعة مع الأساتذة ممتازة، وبيتواصلوا معانا أول بأول عن مستوى بنتي. لاحظنا فرق كبير في درجاتها.</blockquote>
+        <figcaption>وليّة أمر طالبة — المرحلة المتوسطة</figcaption>
+      </figure>
+      <figure class="review review--green">
+        <div class="review-mark" aria-hidden="true">”</div>
+        <blockquote>الامتحانات التجريبية جهّزت بنتي للشهادة وخلتها تدخل الامتحان بثقة. شكراً لكل أساتذة رحيق العلم.</blockquote>
+        <figcaption>وليّ أمر طالبة — المرحلة الثانوية</figcaption>
+      </figure>
+      <figure class="review">
+        <div class="review-mark" aria-hidden="true">”</div>
+        <blockquote>سجّلت ولدين في الابتدائي، والرسوم مناسبة مع خصم الأخوة. البيئة هادئة والأطفال مبسوطين.</blockquote>
+        <figcaption>وليّة أمر — المرحلة الابتدائية</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section section--sage">
+  <div class="container container--narrow">
+    <div class="section-head">
+      <div class="eyebrow">الأسئلة الشائعة</div>
+      <h2 class="section-title">عندك سؤال؟</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item is-open">
+        <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-q-0" aria-expanded="true" aria-controls="faq-a-0"><span>ما المراحل الدراسية المتاحة؟</span><span class="faq-icon" aria-hidden="true">+</span></button></h3>
+        <div class="faq-panel" id="faq-a-0" role="region" aria-labelledby="faq-q-0"><div class="faq-panel-inner"><p>المرحلة الابتدائية (بنين وبنات)، والمرحلة المتوسطة (بنات)، والمرحلة الثانوية (بنات).</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1"><span>كيف أسجّل ابني أو ابنتي؟</span><span class="faq-icon" aria-hidden="true">+</span></button></h3>
+        <div class="faq-panel" id="faq-a-1" role="region" aria-labelledby="faq-q-1"><div class="faq-panel-inner"><p>تواصل معنا عبر واتساب أو الهاتف على الرقمين 0900241100 أو 0119066699، أو زُرنا مباشرة في مقر المدرسة بحي المدارس – الزومة وسط.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2"><span>ما المستندات المطلوبة للتسجيل؟</span><span class="faq-icon" aria-hidden="true">+</span></button></h3>
+        <div class="faq-panel" id="faq-a-2" role="region" aria-labelledby="faq-q-2"><div class="faq-panel-inner"><p>الرقم الوطني، وآخر نتيجة دراسية، وصور شخصية حديثة. للتأكد من القائمة الكاملة حسب المرحلة، تواصل معنا.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3"><span>هل يوجد خصم للأخوة والأيتام؟</span><span class="faq-icon" aria-hidden="true">+</span></button></h3>
+        <div class="faq-panel" id="faq-a-3" role="region" aria-labelledby="faq-q-3"><div class="faq-panel-inner"><p>نعم، نقدّم خصومات خاصة للأخوة المسجّلين معاً، وخصماً خاصاً للأيتام دعماً وتقديراً لهم.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4"><span>كيف أتابع مستوى ابني أو ابنتي؟</span><span class="faq-icon" aria-hidden="true">+</span></button></h3>
+        <div class="faq-panel" id="faq-a-4" role="region" aria-labelledby="faq-q-4"><div class="faq-panel-inner"><p>نتابع كل طالب بشكل فردي ونتواصل مع وليّ الأمر باستمرار لإطلاعه على المستوى والملاحظات.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-q-5" aria-expanded="false" aria-controls="faq-a-5"><span>هل توجد امتحانات تجريبية؟</span><span class="faq-icon" aria-hidden="true">+</span></button></h3>
+        <div class="faq-panel" id="faq-a-5" role="region" aria-labelledby="faq-q-5"><div class="faq-panel-inner"><p>نعم، نقيم مراجعات دورية وامتحانات تجريبية تجهّز الطلاب للامتحانات بثقة واطمئنان.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section section--cream">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">العنوان والتواصل</div>
+      <h2 class="section-title">زُورونا أو كلّمونا</h2>
+    </div>
+    <div class="contact">
+      <div class="contact-card">
+        <div class="contact-address">
+          <div class="icon-box"><svg width="22" height="22" aria-hidden="true"><use href="#i-pin"/></svg></div>
+          <div class="contact-address-text">
+            <div class="contact-label">العنوان</div>
+            <div class="contact-address-value">الزومة – الزومة وسط<br>حي المدارس</div>
+          </div>
+        </div>
+        <div class="phones">
+          <div class="contact-label">للاستفسار</div>
+          <div class="phone-row">
+            <div class="phone-num" dir="ltr">0900241100</div>
+            <div class="phone-actions">
+              <a class="icon-btn icon-btn--outline" href="tel:0900241100" aria-label="اتصال على 0900241100"><svg width="19" height="19" aria-hidden="true"><use href="#i-phone"/></svg></a>
+              <a class="icon-btn icon-btn--solid" href="https://wa.me/249900241100" target="_blank" rel="noopener" aria-label="واتساب 0900241100"><svg width="19" height="19" aria-hidden="true"><use href="#i-chat"/></svg></a>
+            </div>
+          </div>
+          <div class="phone-row phone-row--divided">
+            <div class="phone-num" dir="ltr">0119066699</div>
+            <div class="phone-actions">
+              <a class="icon-btn icon-btn--outline" href="tel:0119066699" aria-label="اتصال على 0119066699"><svg width="19" height="19" aria-hidden="true"><use href="#i-phone"/></svg></a>
+              <a class="icon-btn icon-btn--solid" href="https://wa.me/249119066699" target="_blank" rel="noopener" aria-label="واتساب 0119066699"><svg width="19" height="19" aria-hidden="true"><use href="#i-chat"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=18.364411,31.741655" target="_blank" rel="noopener">افتح الموقع في الخرائط</a>
+      </div>
+      <div class="map-card">
+        <iframe title="خريطة موقع المدرسة" src="https://maps.google.com/maps?q=18.364411,31.741655&amp;z=17&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" aria-label="سارع بالتسجيل واغتنم الفرصة">
+  <div class="cta-blob" aria-hidden="true"></div>
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>سارع بالتسجيل واغتنم الفرصة</h2>
+      <p>ابدأ معنا… مستقبل أبنائك يبدأ من هنا.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn btn--gold" href="https://wa.me/249900241100?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84" target="_blank" rel="noopener">سجّل عبر واتساب</a>
+      <a class="btn btn--ghost-gold" href="tel:0900241100">اتصل بنا</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="assets/img/logo.png" alt="شعار مؤسسة رحيق العلم الخاصة" width="58" height="43" loading="lazy"></div>
+        <div class="footer-brand-text">
+          <div class="footer-name">مؤسسة رحيق العلم الخاصة</div>
+          <div>بناءٌ للعلم… وثمارٌ للمستقبل</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-heading">العنوان</div>
+        <div>الزومة – الزومة وسط، حي المدارس</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-heading">للاستفسار</div>
+        <a class="footer-tel" href="tel:0900241100" dir="ltr">0900241100</a>
+        <a class="footer-tel" href="tel:0119066699" dir="ltr">0119066699</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>مع رحيق العلم… نكتب مستقبلاً مشرقاً لأبنائنا</span>
+      <span>© ٢٠٢٦ مؤسسة رحيق العلم الخاصة</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="mobile-bar-call" href="tel:0900241100">
+    <svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg>
+    اتصل
+  </a>
+  <a class="mobile-bar-wa" href="https://wa.me/249900241100?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84" target="_blank" rel="noopener">
+    <svg width="18" height="18" aria-hidden="true"><use href="#i-chat"/></svg>
+    سجّل عبر واتساب
+  </a>
+</div>
+
+</body>
+</html>

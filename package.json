@@ -1,0 +1,12 @@
+{
+  "name": "rahiq-alelm-website",
+  "private": true,
+  "description": "موقع مؤسسة رحيق العلم الخاصة – الزومة",
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "build": "node scripts/build.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
