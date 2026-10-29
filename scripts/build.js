@@ -18,6 +18,12 @@ const num2 = i => ar(String(i + 1).padStart(2, '0'));
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const lines = v => (Array.isArray(v) ? v : [v]).map(esc).join('<br>');
 const waLink = (number, message) => `https://wa.me/${number}` + (message ? `?text=${encodeURIComponent(message)}` : '');
+// data-wa-msg بيخلّي main.js يضيف اسم الفرع للرسالة لما الزائر يختار فرع
+const waAttrs = (number, message) => `href="${esc(waLink(number, message))}" data-wa-msg="${esc(message)}"`;
+const branchLabel = b => b.label || b.name;
+const mapQuery = ({ map: m }) => (m.query ? m.query : `${m.lat},${m.lng}`);
+const mapLink = b => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery(b))}`;
+const mapEmbed = b => `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery(b))}&z=${b.map.zoom || 17}&output=embed`;
 const ranked = students => [...students].sort((a, b) => b.percent - a.percent);
 const icon = (id, size) => `<svg width="${size}" height="${size}" aria-hidden="true"><use href="#i-${id}"/></svg>`;
 const sectionHead = (s, extra = '') => `
@@ -56,10 +62,9 @@ function validate(c) {
   const list = p => { const v = get(p); if (!Array.isArray(v) || !v.length) errors.push(`"${p}" لازم يكون قائمة [ ... ] وفيها عنصر واحد على الأقل`); };
 
   ['site.name', 'site.title', 'site.description', 'site.tagline', 'site.logo',
-    'contact.whatsappMessage', 'contact.address', 'contact.map.lat', 'contact.map.lng',
-    'buttons.header', 'buttons.whatsapp', 'buttons.call', 'buttons.callShort',
+    'contact.whatsappMessage', 'buttons.header', 'buttons.whatsapp', 'buttons.call', 'buttons.callShort',
     'hero.title', 'hero.video', 'honor.threshold', 'cta.title', 'footer.slogan'].forEach(need);
-  ['contact.phones', 'stages.items', 'why.items', 'honor.years', 'teachers.items',
+  ['contact.phones', 'branches.items', 'stages.items', 'why.items', 'honor.years', 'teachers.items',
     'fees.items', 'gallery.images', 'reviews.items', 'faq.items'].forEach(list);
 
   if (get('site.url') && !/^https?:\/\//.test(get('site.url'))) errors.push('"site.url" لازم يبدأ بـ https:// (أو سيبه فاضي "")');
@@ -77,10 +82,24 @@ function validate(c) {
     });
   });
 
+  const ids = new Set();
+  (get('branches.items') || []).forEach((b, i) => {
+    const at = `branches.items[${i}]`;
+    if (!b.id || !/^[a-z0-9-]+$/.test(b.id)) errors.push(`${at} لازم يكون معاه "id" بحروف إنجليزي صغيرة، مثلاً "zuma"`);
+    else if (ids.has(b.id)) errors.push(`الـ "id" بتاع ${at} ("${b.id}") متكرر — كل فرع لازم يبقى له id مختلف`);
+    ids.add(b.id);
+    if (!b.name) errors.push(`${at} مفيهوش "name"`);
+    if (!Array.isArray(b.address) || !b.address.length) errors.push(`${at}.address لازم يكون قائمة فيها سطر واحد على الأقل`);
+    const m = b.map || {};
+    if (!m.query && (typeof m.lat !== 'number' || typeof m.lng !== 'number')) {
+      errors.push(`${at}.map لازم يكون فيه "lat" و "lng" (أرقام)، أو "query" (اسم المكان على الخرائط)`);
+    }
+  });
+
   if (errors.length) throw new ContentError('في مشاكل في content.json:\n  - ' + errors.join('\n  - '));
 
   // الصور والفيديو: تحذير بس لو ملف مش موجود
-  const files = [c.site.logo, c.hero.video, c.hero.poster, ...c.gallery.images.map(g => g.src)].filter(Boolean);
+  const files = [c.site.logo, c.hero.video, c.hero.poster, ...c.gallery.images.map(g => g.src), ...c.branches.items.map(b => b.image)].filter(Boolean);
   return files.filter(f => !fs.existsSync(path.join(SRC, f))).map(f => `الملف "${f}" مش موجود جوه مجلد src/`);
 }
 
@@ -125,11 +144,12 @@ function head(c) {
 }
 
 function header(c, ctx) {
-  const banner = c.topBanner && c.topBanner.show ? `
+  const t = c.topBanner;
+  const banner = t && t.show ? `
 <div class="top-banner">
-  <span class="dot dot--gold" aria-hidden="true"></span>
-  <span>${esc(c.topBanner.text)}</span>
-  <a href="#contact">${esc(c.topBanner.linkText)}</a>
+  ${t.badge ? `<span class="top-banner-badge">${esc(t.badge)}</span>` : '<span class="dot dot--gold" aria-hidden="true"></span>'}
+  <span>${esc(t.text)}</span>
+  <a href="${esc(t.link || '#contact')}">${esc(t.linkText)}</a>
 </div>
 ` : '';
   return `${banner}
@@ -144,6 +164,7 @@ function header(c, ctx) {
     </a>
     <nav class="nav-desktop" aria-label="القائمة الرئيسية">
       <a href="#stages">المراحل</a>
+      <a href="#branches">فروعنا</a>
       <a href="#why">ليه رحيق العلم</a>
       <a href="#honor">المتفوقون</a>
       <a href="#teachers">الأساتذة</a>
@@ -152,7 +173,7 @@ function header(c, ctx) {
       <a href="#contact">العنوان</a>
     </nav>
     <div class="header-actions">
-      <a class="btn btn--primary btn--sm" href="${esc(ctx.wa)}" target="_blank" rel="noopener" aria-label="${esc(c.buttons.header)} عبر واتساب">
+      <a class="btn btn--primary btn--sm" ${ctx.wa} target="_blank" rel="noopener" aria-label="${esc(c.buttons.header)} عبر واتساب">
         ${icon('chat', 18)}
         <span class="btn-label">${esc(c.buttons.header)}</span>
       </a>
@@ -164,6 +185,7 @@ function header(c, ctx) {
   </div>
   <nav id="mobile-menu" class="nav-mobile" aria-label="القائمة" hidden>
     <a href="#stages">المراحل الدراسية</a>
+    <a href="#branches">فروعنا</a>
     <a href="#why">ليه رحيق العلم</a>
     <a href="#honor">لوحة الشرف</a>
     <a href="#teachers">الأساتذة</a>
@@ -189,7 +211,7 @@ function hero(c, ctx) {
       <h1 class="hero-title">${esc(h.title)}${h.titleHighlight ? ` <span class="hl">${esc(h.titleHighlight)}</span>` : ''}</h1>
       <p class="hero-lead">${esc(h.text)}</p>
       <div class="hero-ctas">
-        <a class="btn btn--primary" href="${esc(ctx.wa)}" target="_blank" rel="noopener">
+        <a class="btn btn--primary" ${ctx.wa} target="_blank" rel="noopener">
           ${icon('chat', 20)}
           ${esc(c.buttons.whatsapp)}
         </a>
@@ -227,6 +249,42 @@ function stats(c, ctx) {
     </div>
   </div>
 </div>`;
+}
+
+function branches(c, ctx) {
+  const br = c.branches;
+  // الفروع الجديدة ("new": true) بتظهر الأول وبالكارت الغامق
+  const items = [...br.items].sort((a, b) => !!b.new - !!a.new);
+  const lead = br.text ? `\n      <p class="section-lead">${esc(br.text)}</p>` : '';
+  return `
+<section id="branches" class="section section--sage">
+  <div class="container">
+    <div class="section-head section-head--loose">
+      <div class="eyebrow">${esc(br.eyebrow)}</div>
+      <h2 class="section-title">${esc(br.title)}${br.titleHighlight ? ` <span class="hl">${esc(br.titleHighlight)}</span>` : ''}</h2>${lead}
+    </div>
+    <div class="branches">${items.map(b => `
+      <article class="branch-card${b.new ? ' branch-card--new' : ''}">
+        <div class="branch-media">${b.image ? `
+          <img src="${esc(b.image)}" alt="${esc(b.imageAlt || 'فرع ' + b.name)}" loading="lazy" decoding="async"${b.imagePosition ? ` style="object-position:${esc(b.imagePosition)}"` : ''}>` : ''}${b.badge ? `
+          <div class="branch-badge">${b.new ? '<span class="dot dot--green" aria-hidden="true"></span>' : ''}${esc(b.badge)}</div>` : ''}
+        </div>
+        <div class="branch-body">
+          <div class="branch-heading">${b.region ? `
+            <div class="branch-region">${esc(b.region)}</div>` : ''}
+            <h3>${esc(b.name)}</h3>
+          </div>
+          <div class="branch-address">${esc(b.address.join(' – '))}</div>${(b.stages || []).length ? `
+          <div class="branch-stages">${b.stages.map(s => `<span>${esc(s)}</span>`).join('')}</div>` : ''}
+          <div class="branch-actions">
+            <a class="btn ${b.new ? 'btn--gold' : 'btn--primary'}" href="${esc(waLink(ctx.phone.whatsapp, `${c.contact.whatsappMessage} – فرع ${branchLabel(b)}`))}" target="_blank" rel="noopener">${esc(br.registerButton)}</a>
+            <a class="btn ${b.new ? 'btn--ghost-gold' : 'btn--outline'}" href="#contact" data-branch-pick="${esc(b.id)}">${esc(br.mapButton)}</a>
+          </div>
+        </div>
+      </article>`).join('')}
+    </div>
+  </div>
+</section>`;
 }
 
 function news(c) {
@@ -357,7 +415,7 @@ function fees(c, ctx) {
     </div>
     <div class="fees-note">
       <div class="fees-note-text">${esc(f.note)}</div>
-      <a class="btn btn--primary btn--md" href="${esc(waLink(ctx.phone.whatsapp, f.whatsappMessage))}" target="_blank" rel="noopener">${esc(f.button)}</a>
+      <a class="btn btn--primary btn--md" ${waAttrs(ctx.phone.whatsapp, f.whatsappMessage)} target="_blank" rel="noopener">${esc(f.button)}</a>
     </div>
   </div>
 </section>`;
@@ -406,17 +464,29 @@ function faq(c) {
 
 function contact(c) {
   const k = c.contact;
-  const { lat, lng, zoom = 17 } = k.map;
+  const list = c.branches.items;
+  const first = list[0];
+  const many = list.length > 1;
+  const addressLines = b => [`${b.name} – ${b.address[0]}`, ...b.address.slice(1)];
+  const tabs = many ? `
+      <div class="branch-tabs" role="tablist" aria-label="الفروع">${list.map((b, i) => `
+        <button type="button" class="branch-tab" role="tab" aria-selected="${i === 0}" aria-controls="branch-panel" data-branch="${esc(b.id)}">
+          <span>${esc(branchLabel(b))}</span>${b.new ? '<span class="pill-new">جديد</span>' : ''}
+        </button>`).join('')}
+      </div>` : '';
+  // البيانات اللي main.js بيستخدمها للتبديل بين الفروع
+  const data = list.map(b => ({ id: b.id, label: branchLabel(b), address: addressLines(b), mapLink: mapLink(b), mapEmbed: mapEmbed(b) }));
+  const json = JSON.stringify(data).replace(/</g, '\\u003c');
   return `
 <section id="contact" class="section section--cream">
-  <div class="container">${sectionHead(k)}
-    <div class="contact">
+  <div class="container">${sectionHead(k, tabs)}
+    <div class="contact" id="branch-panel"${many ? ' role="tabpanel"' : ''}>
       <div class="contact-card">
         <div class="contact-address">
           <div class="icon-box">${icon('pin', 22)}</div>
           <div class="contact-address-text">
             <div class="contact-label">العنوان</div>
-            <div class="contact-address-value">${lines(k.address)}</div>
+            <div class="contact-address-value" id="branch-address">${lines(addressLines(first))}</div>
           </div>
         </div>
         <div class="phones">
@@ -429,12 +499,13 @@ function contact(c) {
             </div>
           </div>`).join('')}
         </div>
-        <a class="maps-link" href="https://www.google.com/maps/search/?api=1&amp;query=${lat},${lng}" target="_blank" rel="noopener">${esc(k.mapButton)}</a>
+        <a class="maps-link" id="branch-map-link" href="${esc(mapLink(first))}" target="_blank" rel="noopener">${esc(k.mapButton)}</a>
       </div>
       <div class="map-card">
-        <iframe title="خريطة موقع المدرسة" src="https://maps.google.com/maps?q=${lat},${lng}&amp;z=${zoom}&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe id="branch-map" title="خريطة موقع المدرسة" src="${esc(mapEmbed(first))}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
+    <script type="application/json" id="branches-data">${json}</script>
   </div>
 </section>`;
 }
@@ -449,7 +520,7 @@ function cta(c, ctx) {
       <p>${esc(c.cta.text)}</p>
     </div>
     <div class="cta-actions">
-      <a class="btn btn--gold" href="${esc(ctx.wa)}" target="_blank" rel="noopener">${esc(c.buttons.whatsapp)}</a>
+      <a class="btn btn--gold" ${ctx.wa} target="_blank" rel="noopener">${esc(c.buttons.whatsapp)}</a>
       <a class="btn btn--ghost-gold" href="${esc(ctx.tel)}">${esc(c.buttons.call)}</a>
     </div>
   </div>
@@ -457,7 +528,7 @@ function cta(c, ctx) {
 }
 
 function footer(c) {
-  const address = (Array.isArray(c.contact.address) ? c.contact.address : [c.contact.address]).join('، ');
+  const list = c.branches.items;
   return `
 <footer class="site-footer">
   <div class="footer-inner">
@@ -470,8 +541,8 @@ function footer(c) {
         </div>
       </div>
       <div class="footer-col">
-        <div class="footer-heading">العنوان</div>
-        <div>${esc(address)}</div>
+        <div class="footer-heading">${list.length > 1 ? 'فروعنا' : 'العنوان'}</div>${list.map(b => `
+        <div>${esc(`${b.name} – ${b.address.join('، ')}`)}</div>`).join('')}
       </div>
       <div class="footer-col">
         <div class="footer-heading">للاستفسار</div>${c.contact.phones.map(p => `
@@ -494,7 +565,7 @@ function mobileBar(c, ctx) {
     ${icon('phone', 18)}
     ${esc(c.buttons.callShort)}
   </a>
-  <a class="mobile-bar-wa" href="${esc(ctx.wa)}" target="_blank" rel="noopener">
+  <a class="mobile-bar-wa" ${ctx.wa} target="_blank" rel="noopener">
     ${icon('chat', 18)}
     ${esc(c.buttons.whatsapp)}
   </a>
@@ -508,7 +579,7 @@ function page(c) {
   const ctx = {
     phone,
     tel: 'tel:' + phone.number,
-    wa: waLink(phone.whatsapp, c.contact.whatsappMessage),
+    wa: waAttrs(phone.whatsapp, c.contact.whatsappMessage),
     latest,
     latestRanked,
     top: latestRanked[0],
@@ -526,6 +597,7 @@ ${header(c, ctx)}
 <main>
 ${hero(c, ctx)}
 ${stats(c, ctx)}
+${branches(c, ctx)}
 ${news(c)}
 ${stages(c)}
 ${why(c)}

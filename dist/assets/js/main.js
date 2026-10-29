@@ -2,7 +2,7 @@
   'use strict';
 
   const ar = s => String(s).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]).replace('.', '٫');
-  const wideMq = window.matchMedia('(min-width: 960px)');
+  const wideMq = window.matchMedia('(min-width: 1060px)');
   const reducedMq = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   // ---------- قائمة الموبايل ----------
@@ -125,6 +125,45 @@
     });
 
     render(years[0]);
+  }
+
+  // ---------- الفروع: تبديل العنوان والخريطة، وإضافة اسم الفرع لرسائل واتساب ----------
+  const branchesData = document.getElementById('branches-data');
+  const branches = branchesData ? JSON.parse(branchesData.textContent) : [];
+  if (branches.length) initBranches(branches);
+
+  function initBranches(branches) {
+    const KEY = 'rahiq-branch';
+    const tabs = [...document.querySelectorAll('.branch-tab')];
+    const addressEl = document.getElementById('branch-address');
+    const mapLinkEl = document.getElementById('branch-map-link');
+    const mapEl = document.getElementById('branch-map');
+    const waLinks = [...document.querySelectorAll('[data-wa-msg]')];
+    const find = id => branches.find(b => b.id === id);
+
+    function pick(b, remember) {
+      tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.branch === b.id)));
+      addressEl.replaceChildren(...b.address.flatMap((line, i) => (i ? [document.createElement('br'), line] : [line])));
+      mapLinkEl.href = b.mapLink;
+      if (mapEl.src !== b.mapEmbed) mapEl.src = b.mapEmbed;
+      waLinks.forEach(a => {
+        a.href = a.href.split('?')[0] + '?text=' + encodeURIComponent(a.dataset.waMsg + ' – فرع ' + b.label);
+      });
+      if (remember) {
+        try { localStorage.setItem(KEY, b.id); } catch (e) {}
+      }
+    }
+
+    tabs.forEach(t => t.addEventListener('click', () => pick(find(t.dataset.branch), true)));
+    // زرار "الموقع على الخريطة" لينك عادي لـ #contact، فبنختار الفرع بس ونسيب المتصفح ينزل
+    document.querySelectorAll('[data-branch-pick]').forEach(a => {
+      a.addEventListener('click', () => pick(find(a.dataset.branchPick), true));
+    });
+
+    // ?branch=kalakla في اللينك، وإلا آخر فرع اختاره الزائر
+    const stored = () => { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
+    const start = find(new URLSearchParams(location.search).get('branch')) || find(stored());
+    if (start) pick(start, false);
   }
 
   // ---------- فيديو الواجهة ----------

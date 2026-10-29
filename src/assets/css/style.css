@@ -106,6 +106,15 @@ section[id] { scroll-margin-top: 80px; }
   text-align: center;
 }
 .top-banner a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.top-banner-badge {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--g900);
+  font-size: 13px;
+  font-weight: 800;
+}
 
 /* ---------- Header ---------- */
 
@@ -189,7 +198,7 @@ section[id] { scroll-margin-top: 80px; }
   font-weight: 700;
   font-size: 16px;
 }
-.nav-mobile a.is-accent { background: var(--g700); border-color: var(--g700); color: #fff; }
+.nav-mobile a.is-accent { grid-column: span 2; background: var(--g700); border-color: var(--g700); color: #fff; }
 
 /* ---------- Hero ---------- */
 
@@ -356,6 +365,92 @@ section[id] { scroll-margin-top: 80px; }
 .h-scroll > * { scroll-snap-align: start; }
 .h-scroll--news { grid-auto-columns: minmax(270px, 1fr); }
 .h-scroll--reviews { grid-auto-columns: minmax(280px, 1fr); }
+
+/* ---------- Branches ---------- */
+
+.section-title .hl { color: var(--g700); }
+
+.branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; }
+.branch-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 26px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  color: var(--ink);
+}
+.branch-media { position: relative; aspect-ratio: 16 / 10; background: var(--sand-2); }
+.branch-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.branch-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--g900);
+  font-weight: 800;
+  font-size: 14px;
+}
+.branch-body { flex: 1; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+.branch-heading { display: flex; flex-direction: column; gap: 2px; }
+.branch-region { font-size: 14px; font-weight: 700; color: var(--muted); }
+.branch-card h3 { font-family: var(--serif); font-weight: 700; font-size: 34px; line-height: 1.2; color: var(--g900); }
+.branch-address { font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+.branch-stages { display: flex; flex-wrap: wrap; gap: 6px; }
+.branch-stages span {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--sage);
+  color: var(--g700);
+  font-size: 14px;
+  font-weight: 700;
+}
+.branch-actions { margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 10px; }
+.branch-actions .btn { height: 50px; padding: 0 18px; font-size: 16px; }
+.branch-actions .btn:first-child { flex: 1 1 180px; }
+.branch-actions .btn:last-child { flex: 1 1 170px; }
+
+.branch-card--new { background: var(--g900); border-color: var(--g900); color: #fff; }
+.branch-card--new .branch-media { background: var(--g800); }
+.branch-card--new .branch-badge { background: var(--gold); }
+.branch-card--new .branch-region { color: var(--on-dark-2); }
+.branch-card--new h3 { color: #fff; }
+.branch-card--new .branch-address { color: var(--on-dark); }
+.branch-card--new .branch-stages span { background: none; border: 1.5px solid var(--g500); color: var(--on-dark); }
+.branch-card--new .btn--ghost-gold:hover { background: var(--g800); }
+
+.branch-tabs { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+.branch-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  color: var(--g900);
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+.branch-tab[aria-selected="true"] { background: var(--g900); border-color: var(--g900); color: #fff; }
+.pill-new {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--g900);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 800;
+}
 
 /* ---------- News (hidden by default) ---------- */
 
@@ -887,20 +982,21 @@ section[id] { scroll-margin-top: 80px; }
 
 /* ---------- Responsive ---------- */
 
-@media (max-width: 959.98px) {
+@media (max-width: 1059.98px) {
   /* الشريط السفلي بيطول على الآيفون بمقدار مساحة شريط الـ Home، فنزوّدها هنا كمان */
   :root { --bar-h: calc(76px + env(safe-area-inset-bottom)); }
   body.no-mobile-bar { padding-bottom: 0; }
 }
 
-@media (min-width: 960px) {
+/* 8 لينكات في القائمة، فالـ desktop nav بيبدأ من 1060 */
+@media (min-width: 1060px) {
   .nav-desktop { display: flex; }
   .menu-toggle,
   .nav-mobile,
   .mobile-bar { display: none; }
 }
 
-@media (min-width: 960px) and (max-width: 1099.98px) {
+@media (min-width: 1060px) and (max-width: 1179.98px) {
   .header-bar { gap: 12px; }
   .brand-name { font-size: 17px; }
   .nav-desktop { gap: 12px; font-size: 14px; }
